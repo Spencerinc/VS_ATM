@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-6 margin-top-20">
+        <a href="#" class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-circle-arrow-down"></span>
+            Withdrawal
+        </a>
+        <a href="#" class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-flash"></span>
+            Quick Cash $100
+        </a>
+        <a href="@Url.Action("Details", "CheckingAccount")" class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-question-sign"></span>
+            Balance Inquiry
+        </a>
+    </div>
+    <div class="col-md-6 margin-top-20">
+        <a href="@Url.Action("Statement", "CheckingAccount", new { id = ViewBag.CheckingAccountId })" class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-print"></span>
+            Print Statement
+        </a>
+        <a href="#" class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-transfer"></span>
+            Transfer Funds
+        </a>
+        <a href="@Url.Action("Deposit", "Transaction", new { checkingAccountId = 999 })" class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-circle-arrow-up"></span>
+            Deposit
+        </a>
+    </div>
+</div>
+
+You are using @Request.Browser.Browser, and that's OK!
+
+
+
+@{ var amounts = new List<Decimal> { 100, 25.50m, -40, 275.99m }; }
+    
+<ul>
+    @foreach(decimal amount in amounts)
+    {
+        <li>@formatAmount(amount)</li>
+    }
+</ul>
+
+    @helper formatAmount(decimal amount)
+{
+        var color = "green";
+        if(amount<0)
+    {
+        color = "red";
+    }
+    <span style="color:@color">@String.Format("{0:c}", amount)</span>
+}
+
+Christine is testing. Adding new stuff here.
+Test. <br />
+
+<dl class="dl-horizontal">
+    <dt>Title 1</dt>
+    <dd>Text 1</dd>
+    <dt>Title 2. Title 2. Title 2. Title 2. Title 2. </dt>
+    <dd>Text 2. Text 2. Text 2. Text 2. Text 2. Text 2. Text 2. Text 2. Text 2. Text 2. </dd>
+    <dt>Title 3. Title 3. Title 3. Title 3. </dt>
+    <dd>Text 3. Text 3. Text 3. Text 3. Text 3. Text 3. Text 3. </dd>
+</dl>
+
+More testing. <br /><br />
+
+To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+
+<p>
+To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+To edit settings, press <kbd>ctrl + ,</kbd>
+</p>
+
+<p>
+    To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+    To edit settings, press <kbd><strong>ctrl</strong> + <strong>,</strong></kbd>
+</p>
+
+<!-- Standard button -->
+<button type="button" class="btn btn-default">Default</button>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-success">Success</button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">Warning</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-danger">Danger</button>
+
+<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+<button type="button" class="btn btn-link">Link</button> <br /><br />
+
+<img src="~/Content/Images/logo.png" class="img-rounded">
+<img src="~/Content/Images/logo.png" class="img-circle">
+<img src="~/Content/Images/logo.png" class="img-thumbnail">
